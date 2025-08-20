@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards App - Super Deck</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <h1>🧠 OpenAI Agents SDK Flashcards</h1>
+    <label for="deckSelector">Choose a Deck:</label>
+    <select id="deckSelector">
+      <option value="superdeck">Super Deck (All 80)</option>
+      <option value="day1">Day 1</option>
+      <option value="day2">Day 2</option>
+      <option value="day3">Day 3</option>
+      <option value="day4">Day 4</option>
+      <option value="day5">Day 5</option>
+      <option value="day6">Day 6</option>
+      <option value="day7">Day 7</option>
+      <option value="day8">Day 8</option>
+    </select>
+    <div id="flashcard">
+      <p id="question">Select a deck to start studying!</p>
+      <p id="answer" class="hidden"></p>
+    </div>
+    <div class="controls">
+      <button onclick="prevCard()">⬅ Prev</button>
+      <button onclick="flipCard()">🔄 Flip</button>
+      <button onclick="nextCard()">Next ➡</button>
+    </div>
+    <div class="progress">
+      <span id="progressText">0 / 0</span>
+    </div>
+  </div>
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
