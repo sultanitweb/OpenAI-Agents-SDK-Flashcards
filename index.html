@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flashcards App - Super Deck</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flashcards Pro — OpenAI Agents SDK</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app">
-    <h1>🧠 OpenAI Agents SDK Flashcards</h1>
-    <label for="deckSelector">Choose a Deck:</label>
-    <select id="deckSelector">
-      <option value="superdeck">Super Deck (All 80)</option>
-      <option value="day1">Day 1</option>
-      <option value="day2">Day 2</option>
-      <option value="day3">Day 3</option>
-      <option value="day4">Day 4</option>
-      <option value="day5">Day 5</option>
-      <option value="day6">Day 6</option>
-      <option value="day7">Day 7</option>
-      <option value="day8">Day 8</option>
-    </select>
-    <div id="flashcard">
-      <p id="question">Select a deck to start studying!</p>
-      <p id="answer" class="hidden"></p>
+  <header class="topbar">
+    <h1>🧠 Flashcards Pro — OpenAI Agents SDK</h1>
+    <h2>Sultan Ahmed (GIAIC)</h2>
+    <div class="controls-row">
+      <select id="deckSelect" title="Choose deck"></select>
+      <button id="shuffleBtn" class="btn btn-outline">🔀 Shuffle</button>
+      <button id="resetBtn" class="btn btn-outline">♻ Reset Progress</button>
     </div>
-    <div class="controls">
-      <button onclick="prevCard()">⬅ Prev</button>
-      <button onclick="flipCard()">🔄 Flip</button>
-      <button onclick="nextCard()">Next ➡</button>
-    </div>
-    <div class="progress">
-      <span id="progressText">0 / 0</span>
-    </div>
-  </div>
-  <script src="questions.js"></script>
+  </header>
+
+  <main>
+    <section class="progress">
+      <div class="progress-label">
+        <span id="progressText">0 / 0</span>
+        <span id="knownStats">Known: 0 • Unknown: 0</span>
+      </div>
+      <div class="progress-bar"><div id="progressFill"></div></div>
+    </section>
+
+    <section class="card-area">
+      <div id="card" class="card" tabindex="0">
+        <div id="cardContent" class="card-content">Loading…</div>
+      </div>
+      <div class="nav-row">
+        <button id="prevBtn" class="btn">⬅ Prev</button>
+        <button id="flipBtn" class="btn">🔄 Flip</button>
+        <button id="nextBtn" class="btn">Next ➡</button>
+      </div>
+      <div class="mark-row">
+        <button id="unknownBtn" class="btn btn-danger">❌ Unknown</button>
+        <button id="knownBtn" class="btn btn-success">✅ Known</button>
+      </div>
+    </section>
+
+    <section class="footer-hint">
+      <p>Shortcuts: ← / → navigate • Space flip • 1 Known • 2 Unknown • S Shuffle</p>
+    </section>
+  </main>
+
   <script src="script.js"></script>
+    <script src="decks.js"></script>
+
 </body>
 </html>
